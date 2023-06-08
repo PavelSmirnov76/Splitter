@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Splitter
+﻿namespace Splitter
 {
     public class Splitter
     {

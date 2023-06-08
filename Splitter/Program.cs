@@ -1,4 +1,7 @@
-﻿using Splitter;
+﻿using SortingAlgorithmsConsoleView.Menu;
+using SortingAlgorithmsConsoleView.Services.PrinterService;
+using SortingAlgorithmsConsoleView.Services.ReaderService;
+using Splitter;
 using System.ComponentModel.DataAnnotations;
 
 namespace Splitter
@@ -9,17 +12,9 @@ namespace Splitter
         
         static void Main()
         {
-            Console.WriteLine("Введите строку");
+            var menu = new Menu(new MenuWriterHelper(new ConsolePrinterService()), new ConsoleReaderService());
 
-            var str = Console.ReadLine();
-
-            Console.WriteLine("Введите сепаратор");
-            var separator = Console.ReadLine()[0];
-
-            foreach (var item in Splitter.TestSplit(str, separator))
-            {
-                Console.WriteLine(item);
-            }
+            menu.OpenMenu();
         }
     }
 }
